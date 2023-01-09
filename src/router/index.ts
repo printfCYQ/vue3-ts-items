@@ -9,10 +9,14 @@ export const routes: Array<RouteRecordRaw> = [{
     path: '/about',
     name: 'About',
     component: () => import('@/pages/About.vue')
-},{
-    path:'/newYearCountDown',
-    name:'NewYearCountDown',
+}, {
+    path: '/newYearCountDown',
+    name: 'NewYearCountDown',
     component: () => import('@/pages/NewYearCountDown.vue')
+}, {
+    path: '/moonVoice',
+    name: 'MoonVoice',
+    component: () => import('@/pages/MoonVoice.vue')
 }]
 
 const router = createRouter({
