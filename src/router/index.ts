@@ -1,7 +1,7 @@
 
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
-const routes: Array<RouteRecordRaw> = [{
+export const routes: Array<RouteRecordRaw> = [{
     path: '/',
     name: 'Home',
     component: () => import('@/pages/Home.vue')
@@ -9,6 +9,10 @@ const routes: Array<RouteRecordRaw> = [{
     path: '/about',
     name: 'About',
     component: () => import('@/pages/About.vue')
+},{
+    path:'/newYearCountDown',
+    name:'NewYearCountDown',
+    component: () => import('@/pages/NewYearCountDown.vue')
 }]
 
 const router = createRouter({
