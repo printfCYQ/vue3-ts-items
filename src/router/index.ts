@@ -17,6 +17,10 @@ export const routes: Array<RouteRecordRaw> = [{
     path: '/moonVoice',
     name: 'MoonVoice',
     component: () => import('@/pages/MoonVoice.vue')
+}, {
+    path: '/puzzle',
+    name: 'Puzzle',
+    component: () => import('@/pages/Puzzle.vue')
 }]
 
 const router = createRouter({
