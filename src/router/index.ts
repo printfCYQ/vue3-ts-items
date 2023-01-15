@@ -21,6 +21,10 @@ export const routes: Array<RouteRecordRaw> = [{
     path: '/puzzle',
     name: 'Puzzle',
     component: () => import('@/pages/Puzzle.vue')
+}, {
+    path: '/toDoList',
+    name: 'ToDoList',
+    component: () => import('@/pages/ToDoList/ToDoList.vue')
 }]
 
 const router = createRouter({
