@@ -25,6 +25,10 @@ export const routes: Array<RouteRecordRaw> = [{
     path: '/toDoList',
     name: 'ToDoList',
     component: () => import('@/pages/ToDoList/ToDoList.vue')
+}, {
+    path: '/githubHover',
+    name: 'GithubHover',
+    component: () => import('@/pages/GithubHover.vue')
 }]
 
 const router = createRouter({
