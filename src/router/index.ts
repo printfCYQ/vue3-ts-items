@@ -29,6 +29,10 @@ export const routes: Array<RouteRecordRaw> = [{
     path: '/githubHover',
     name: 'GithubHover',
     component: () => import('@/pages/GithubHover.vue')
+}, {
+    path: '/gaodeMap',
+    name: 'GaodeMap',
+    component: () => import('@/pages/GaodeMap.vue')
 }]
 
 const router = createRouter({
