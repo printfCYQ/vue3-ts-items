@@ -33,6 +33,10 @@ export const routes: Array<RouteRecordRaw> = [{
     path: '/gaodeMap',
     name: 'GaodeMap',
     component: () => import('@/pages/GaodeMap.vue')
+}, {
+    path: '/backTop',
+    name: 'BackTop',
+    component: () => import('@/pages/BackTop.vue')
 }]
 
 const router = createRouter({

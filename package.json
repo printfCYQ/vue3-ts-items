@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "login": "osrc login",
+    "deploy": "osrc deploy"
   },
   "dependencies": {
     "@vueuse/core": "^9.6.0",
