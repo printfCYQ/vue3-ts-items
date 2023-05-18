@@ -41,6 +41,10 @@ export const routes: Array<RouteRecordRaw> = [{
     path: '/splitpane',
     name: 'SplitPane',
     component: () => import('@/pages/SplitPane.vue')
+}, {
+    path: '/shoppingCart',
+    name: 'ShoppingCart',
+    component: () => import('@/pages/ShoppingCart/ShoppingCart.vue')
 }]
 
 const router = createRouter({
