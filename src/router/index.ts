@@ -45,6 +45,10 @@ export const routes: Array<RouteRecordRaw> = [{
     path: '/shoppingCart',
     name: 'ShoppingCart',
     component: () => import('@/pages/ShoppingCart/ShoppingCart.vue')
+}, {
+    path: '/toggleSideMenu',
+    name: 'ToggleSideMenu',
+    component: () => import('@/pages/ToggleSideMenu.vue')
 }]
 
 const router = createRouter({
