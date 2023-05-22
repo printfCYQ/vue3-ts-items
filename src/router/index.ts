@@ -49,6 +49,10 @@ export const routes: Array<RouteRecordRaw> = [{
     path: '/toggleSideMenu',
     name: 'ToggleSideMenu',
     component: () => import('@/pages/ToggleSideMenu.vue')
+}, {
+    path: '/fourFundamentalRules',
+    name: 'FourFundamentalRules',
+    component: () => import('@/pages/FourFundamentalRules.vue')
 }]
 
 const router = createRouter({
