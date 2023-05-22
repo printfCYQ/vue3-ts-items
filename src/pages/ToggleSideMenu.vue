@@ -2,7 +2,7 @@
     <div class="flex h-screen w-screen">
         <div :class="toggle ? 'w-50' : 'w-15'"
             class="flex flex-col items-center justify-center relative transition-all ease-in-out duration-300">
-            <div class=" flex  items-center my-3  cursor-pointer" v-for="item in menuList" :key="item"
+            <div class=" flex  items-center my-3  cursor-pointer" v-for="item in menuList" :key="item.title"
                 @click="toggleMenu(item)">
                 <div class="h-8 w-8 p-2 rounded-lg transition-all ease-in-out duration-300"
                     :class="activeMenu === item.title ? ['bg-[' + item.color + ']', 'translate-x-[30px]', 'text-white', 'shadow-2xl', 'shadow-[' + item.color + ']'] : ''">

@@ -15,7 +15,7 @@
             <div class="w-24 h-10 flex justify-center bg-emerald-400  items-center mr-4 cursor-pointer transition-all rounded-2 select-none ml-4"
                 @click="getTopic()"> {{ set.size === total ? '重新生成' : '生成题目' }} </div>
         </div>
-        <div v-for="item in set" :key="item">{{
+        <div v-for="(item, index) in set" :key="index">{{
             item
         }}</div>
     </div>

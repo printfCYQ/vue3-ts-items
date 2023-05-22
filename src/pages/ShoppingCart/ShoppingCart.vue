@@ -64,6 +64,11 @@
 </template>
 
 <script setup lang="ts">
+import g1 from './images/g1.png';
+import g2 from './images/g2.png';
+import g3 from './images/g3.png';
+import g4 from './images/g4.png';
+import g5 from './images/g5.png';
 
 const maxNum = ref(30)
 const menus = [
@@ -82,11 +87,7 @@ const menus = [
     '热卖套餐',
 ]
 
-import g1 from './images/g1.png';
-import g2 from './images/g2.png';
-import g3 from './images/g3.png';
-import g4 from './images/g4.png';
-import g5 from './images/g5.png';
+
 
 interface GoodI {
     pic: string;
