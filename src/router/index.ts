@@ -53,6 +53,10 @@ export const routes: Array<RouteRecordRaw> = [{
     path: '/fourFundamentalRules',
     name: 'FourFundamentalRules',
     component: () => import('@/pages/FourFundamentalRules.vue')
+}, {
+    path: '/deferPage',
+    name: 'DeferPage',
+    component: () => import('@/pages/DeferPage/DeferPage.vue')
 }]
 
 const router = createRouter({
