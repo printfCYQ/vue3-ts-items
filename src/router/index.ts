@@ -57,6 +57,10 @@ export const routes: Array<RouteRecordRaw> = [{
     path: '/deferPage',
     name: 'DeferPage',
     component: () => import('@/pages/DeferPage/DeferPage.vue')
+}, {
+    path: '/svgStroke',
+    name: 'SvgStroke',
+    component: () => import('@/pages/SvgStroke.vue')
 }]
 
 const router = createRouter({
