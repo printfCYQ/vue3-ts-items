@@ -61,6 +61,10 @@ export const routes: Array<RouteRecordRaw> = [{
     path: '/svgStroke',
     name: 'SvgStroke',
     component: () => import('@/pages/SvgStroke.vue')
+}, {
+    path: '/tabs',
+    name: 'Tabs',
+    component: () => import('@/pages/Tabs.vue')
 }]
 
 const router = createRouter({
