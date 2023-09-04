@@ -65,6 +65,10 @@ export const routes: Array<RouteRecordRaw> = [{
     path: '/tabs',
     name: 'Tabs',
     component: () => import('@/pages/Tabs.vue')
+}, {
+    path: '/vresize',
+    name: 'VResize',
+    component: () => import('@/pages/VResize.vue')
 }]
 
 const router = createRouter({
