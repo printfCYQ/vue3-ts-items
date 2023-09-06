@@ -30,6 +30,10 @@ export const routes: Array<RouteRecordRaw> = [{
     name: 'GithubHover',
     component: () => import('@/pages/GithubHover.vue')
 }, {
+    path: '/githubHoverNew',
+    name: 'GithubHoverNew',
+    component: () => import('@/pages/GithubHoverNew.vue')
+}, {
     path: '/gaodeMap',
     name: 'GaodeMap',
     component: () => import('@/pages/GaodeMap.vue')
