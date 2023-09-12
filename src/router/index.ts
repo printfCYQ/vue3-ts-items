@@ -77,6 +77,10 @@ export const routes: Array<RouteRecordRaw> = [{
     path: '/textSlowShow',
     name: 'TextSlowShow',
     component: () => import('@/pages/TextSlowShow.vue')
+}, {
+    path: '/nineBoxAnimation',
+    name: 'NineBoxAnimation',
+    component: () => import('@/pages/NineBoxAnimation.vue')
 }]
 
 const router = createRouter({
