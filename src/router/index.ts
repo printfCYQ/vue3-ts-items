@@ -73,6 +73,10 @@ export const routes: Array<RouteRecordRaw> = [{
     path: '/vresize',
     name: 'VResize',
     component: () => import('@/pages/VResize.vue')
+}, {
+    path: '/textSlowShow',
+    name: 'TextSlowShow',
+    component: () => import('@/pages/TextSlowShow.vue')
 }]
 
 const router = createRouter({
