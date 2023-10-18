@@ -1,20 +1,25 @@
-# 使用 Node.js 作为基础镜像
-FROM node:16-alpine
+# 设置基础镜像
+FROM node:16.15.1 as build-stage
 
 # 设置工作目录
 WORKDIR /app
 
-# 复制项目文件到镜像中
-COPY . .
+# 复制项目文件到容器中
+COPY . /app
 
-# 安装依赖
-RUN npm install
+# 安装 pnpm
+RUN npm install -g pnpm
 
-# 构建生产环境
-RUN npm run build
+# 使用 pnpm 安装项目依赖
+RUN pnpm install
 
-# 暴露容器的端口号
+# 构建 Vue 3 项目
+RUN pnpm run build
+
+FROM nginx:1.21.3 as production-stage
+
+COPY --from=build-stage /app/dist /usr/share/nginx/html
+
 EXPOSE 80
 
-# 启动命令
-CMD [ "npm", "run", "serve" ]
+CMD ["nginx", "-g", "daemon off;"]
