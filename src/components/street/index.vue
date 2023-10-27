@@ -15,14 +15,12 @@ import dataList from '@/utils/shengshiqu'
 console.log(dataList);
 
 const emits = defineEmits(['change'])
-const value = reactive(
-    {
-        v1: '',
-        v2: '',
-        v3: '',
-        v4: ''
-
-    })
+const value = reactive<any>({
+    v1: '',
+    v2: '',
+    v3: '',
+    v4: ''
+})
 const props = defineProps({
     level: {
         type: Number,
@@ -56,15 +54,15 @@ const options = computed(() => {
 
 const province = computed(() => dataList)
 const city = computed(() => {
-    const item = province.value.find(v => v.id === value.v1)
+    const item = province.value.find((v: any) => v.id === value.v1)
     return province.value.length > 0 && value.v1 && item ? item.children : []
 })
 const area = computed(() => {
-    const item = city.value.find(v => v.id === value.v2)
+    const item = city.value.find((v: any) => v.id === value.v2)
     return city.value.length > 0 && value.v2 && item ? item.children : []
 })
 const street = computed(() => {
-    const item = area.value.find(v => v.id === value.v3)
+    const item = area.value.find((v: any) => v.id === value.v3)
     return area.value.length > 0 && value.v3 && item ? item.children : []
 })
 
@@ -72,7 +70,7 @@ const chooseValue = computed(() => {
     return [value.v1, value.v2, value.v3, value.v4].slice(0, props.level).filter(v => v)
 })
 
-const change = (index) => {
+const change = (index: number) => {
     for (let i = index + 1; i < props.level; i++) {
         value[`v${i + 1}`] = ''
     }
