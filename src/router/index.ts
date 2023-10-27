@@ -81,6 +81,10 @@ export const routes: Array<RouteRecordRaw> = [{
     path: '/nineBoxAnimation',
     name: 'NineBoxAnimation',
     component: () => import('@/pages/NineBoxAnimation.vue')
+}, {
+    path: '/street',
+    name: 'Street',
+    component: () => import('@/pages/Street.vue')
 }]
 
 const router = createRouter({

@@ -14,5 +14,6 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Splitpane: typeof import('./src/components/splitpane/index.vue')['default']
+    Street: typeof import('./src/components/street/index.vue')['default']
   }
 }
