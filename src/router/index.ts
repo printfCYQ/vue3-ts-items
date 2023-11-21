@@ -89,6 +89,10 @@ export const routes: Array<RouteRecordRaw> = [{
     path: '/winSea-1',
     name: 'WinSea-1',
     component: () => import('@/pages/WinSea-1.vue')
+}, {
+    path: '/antVLoading',
+    name: 'AntVLoading',
+    component: () => import('@/pages/AntVLoading.vue')
 }]
 
 const router = createRouter({
