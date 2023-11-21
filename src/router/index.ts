@@ -85,6 +85,10 @@ export const routes: Array<RouteRecordRaw> = [{
     path: '/street',
     name: 'Street',
     component: () => import('@/pages/Street.vue')
+}, {
+    path: '/winSea-1',
+    name: 'WinSea-1',
+    component: () => import('@/pages/WinSea-1.vue')
 }]
 
 const router = createRouter({
