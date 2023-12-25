@@ -93,6 +93,10 @@ export const routes: Array<RouteRecordRaw> = [{
     path: '/antVLoading',
     name: 'AntVLoading',
     component: () => import('@/pages/AntVLoading.vue')
+}, {
+    path: '/roughNotation',
+    name: 'RoughNotation',
+    component: () => import('@/pages/RoughNotation.vue')
 }]
 
 const router = createRouter({
