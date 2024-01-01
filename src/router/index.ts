@@ -97,6 +97,10 @@ export const routes: Array<RouteRecordRaw> = [{
     path: '/roughNotation',
     name: 'RoughNotation',
     component: () => import('@/pages/RoughNotation.vue')
+}, {
+    path: '/cursorSvg',
+    name: 'CursorSvg',
+    component: () => import('@/pages/CursorSvg.vue')
 }]
 
 const router = createRouter({
