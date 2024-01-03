@@ -101,6 +101,10 @@ export const routes: Array<RouteRecordRaw> = [{
     path: '/cursorSvg',
     name: 'CursorSvg',
     component: () => import('@/pages/CursorSvg.vue')
+}, {
+    path: '/rotateImg',
+    name: 'RotateImg',
+    component: () => import('@/pages/RotateImg.vue')
 }]
 
 const router = createRouter({
