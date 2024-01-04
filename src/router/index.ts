@@ -105,6 +105,10 @@ export const routes: Array<RouteRecordRaw> = [{
     path: '/rotateImg',
     name: 'RotateImg',
     component: () => import('@/pages/RotateImg.vue')
+}, {
+    path: '/textStroke',
+    name: 'TextStroke',
+    component: () => import('@/pages/TextStroke.vue')
 }]
 
 const router = createRouter({
