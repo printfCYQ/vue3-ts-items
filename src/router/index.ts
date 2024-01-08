@@ -109,6 +109,10 @@ export const routes: Array<RouteRecordRaw> = [{
     path: '/textStroke',
     name: 'TextStroke',
     component: () => import('@/pages/TextStroke.vue')
+}, {
+    path: '/rememberEditTable',
+    name: 'RememberEditTable',
+    component: () => import('@/pages/RememberEditTable.vue')
 }]
 
 const router = createRouter({
