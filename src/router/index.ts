@@ -113,6 +113,10 @@ export const routes: Array<RouteRecordRaw> = [{
     path: '/rememberEditTable',
     name: 'RememberEditTable',
     component: () => import('@/pages/RememberEditTable.vue')
+}, {
+    path: '/oneImageToNine',
+    name: 'OneImageToNine',
+    component: () => import('@/pages/OneImageToNine.vue')
 }]
 
 const router = createRouter({
