@@ -117,6 +117,10 @@ export const routes: Array<RouteRecordRaw> = [{
     path: '/oneImageToNine',
     name: 'OneImageToNine',
     component: () => import('@/pages/OneImageToNine.vue')
+}, {
+    path: '/backdropFilter',
+    name: 'BackdropFilter',
+    component: () => import('@/pages/BackdropFilter.vue')
 }]
 
 const router = createRouter({
