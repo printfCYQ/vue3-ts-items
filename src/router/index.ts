@@ -121,6 +121,10 @@ export const routes: Array<RouteRecordRaw> = [{
     path: '/backdropFilter',
     name: 'BackdropFilter',
     component: () => import('@/pages/BackdropFilter.vue')
+}, {
+    path: '/colorthief',
+    name: 'Colorthief',
+    component: () => import('@/pages/Colorthief.vue')
 }]
 
 const router = createRouter({
