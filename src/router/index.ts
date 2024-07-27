@@ -125,6 +125,10 @@ export const routes: Array<RouteRecordRaw> = [{
     path: '/colorthief',
     name: 'Colorthief',
     component: () => import('@/pages/Colorthief.vue')
+}, {
+    path: '/dragBoard',
+    name: 'DragBoard',
+    component: () => import('@/pages/DragBoard/DragBoard.vue')
 }]
 
 const router = createRouter({
