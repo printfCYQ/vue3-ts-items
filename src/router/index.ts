@@ -129,6 +129,10 @@ export const routes: Array<RouteRecordRaw> = [{
     path: '/dragBoard',
     name: 'DragBoard',
     component: () => import('@/pages/DragBoard/DragBoard.vue')
+}, {
+    path: '/typedJS',
+    name: 'TypedJS',
+    component: () => import('@/pages/TypedJS.vue')
 }]
 
 const router = createRouter({

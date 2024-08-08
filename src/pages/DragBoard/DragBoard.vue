@@ -14,7 +14,7 @@
           :i="item.i"
           :isDraggable="editable"
           :isResizable="editable"
-          @resize="resize"
+          @resized="resized"
           @move="move"
           @moved="moved"
         >
@@ -38,6 +38,10 @@ const comps = shallowRef<Components>({
   1: SimpleRingChart,
   2: HeatMapChart,
 });
+
+// x，y: 网格左上角坐标
+// w，h: 网格宽高
+// i: 组件id 
 const layout = [
   { x: 0, y: 0, w: 1, h: 40, i: 0 },
   { x: 1, y: 0, w: 1, h: 40, i: 1 },
@@ -49,8 +53,8 @@ const toggle = () => {
   editable.value = !editable.value;
 };
 
-const resize = (e) => {
-  console.log("resize", e);
+const resized = (e) => {
+  console.log("resized", e);
 };
 
 const move = (e) => {
