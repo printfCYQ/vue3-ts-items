@@ -133,6 +133,10 @@ export const routes: Array<RouteRecordRaw> = [{
     path: '/typedJS',
     name: 'TypedJS',
     component: () => import('@/pages/TypedJS.vue')
+}, {
+    path:'/objectToJSON',
+    name:'ObjectToJSON',
+    component:()=>import('@/pages/ObjectToJSON.vue')
 }]
 
 const router = createRouter({
