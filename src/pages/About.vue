@@ -1,15 +1,18 @@
 <template>
-    <div>
-        about 购物车
-    </div>
+  <div>about 购物车</div>
 </template>
 
 <script lang="ts">
+import userApi from "@/api/user/index.ts";
 export default defineComponent({
-    name: "About",
-    components: {},
-    setup() {
-        return {}
-    }
-})
+  name: "About",
+  components: {},
+  setup() {
+    onMounted(async () => {
+      const data = await userApi.me();
+      console.log(data);
+    });
+    return {};
+  },
+});
 </script>

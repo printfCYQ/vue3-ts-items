@@ -1,4 +1,5 @@
-import Mock, { Random } from "mockjs";
+import Mock from "mockjs";
+const { Random } = Mock;
 import type { MockMethod } from "vite-plugin-mock";
 export default [
     {
