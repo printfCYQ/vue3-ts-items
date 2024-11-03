@@ -11,11 +11,8 @@
         {{ item }}
       </div>
     </div>
-    <div class="m-t-10 p-x-20 p-y-5 bg-fuchsia rounded-10" @click="copyNum(1)">
+    <div class="m-t-10 p-x-20 p-y-5 bg-yellow rounded-10 select-none cursor-pointer" @click="copyNum(1)">
       copy
-    </div>
-    <div class="m-t-10 p-x-20 p-y-5 bg-fuchsia rounded-10" @click="newNum(1)">
-      new
     </div>
     <div class="flex m-t-10">
       <div class="text-2xl m-r-4">大乐透:</div>
@@ -28,11 +25,11 @@
         {{ item }}
       </div>
     </div>
-    <div class="m-t-10 p-x-20 p-y-5 bg-fuchsia rounded-10" @click="copyNum(2)">
+    <div class="m-t-10 p-x-20 p-y-5 bg-lime rounded-10 select-none cursor-pointer" @click="copyNum(2)">
       copy
     </div>
-    <div class="m-t-10 p-x-20 p-y-5 bg-fuchsia rounded-10" @click="newNum(2)">
-      new
+    <div class="m-t-10 p-x-20 p-y-5 bg-fuchsia rounded-10 select-none cursor-pointer" @click="reload">
+      reload
     </div>
   </div>
 </template>
@@ -48,36 +45,41 @@ const daLeTouRed: number[] = Array.from({ length: 35 }, (_, i) => i + 1);
 const daLeTouBlue: number[] = Array.from({ length: 12 }, (_, i) => i + 1);
 
 const randomNum = (arr: number[], numToSelect: number) => {
-  const shuffledArr = arr.slice().sort(() => Math.random() - 0.5);
-  const selectedNumbers = shuffledArr.slice(0, numToSelect);
-  return selectedNumbers;
+  const shuffledArr = [...arr];
+  for (let i = shuffledArr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledArr[i], shuffledArr[j]] = [shuffledArr[j], shuffledArr[i]];
+  }
+  return shuffledArr.slice(0, numToSelect);
 };
 
-const newNum = (type: number) => {
-  if (type === 1) {
-    shuangSeQiu.value = randomNum(shuangSeQiuRed, 6)
-      .sort((a: number, b: number) => a - b)
-      .concat(
-        randomNum(shuangSeQiuBlue, 1).sort((a: number, b: number) => a - b)
-      );
-  } else if (type === 2) {
-    daLeTou.value = randomNum(daLeTouRed, 5)
-      .sort((a: number, b: number) => a - b)
-      .concat(randomNum(daLeTouBlue, 2).sort((a: number, b: number) => a - b));
-  }
+const createNum = () => {
+  shuangSeQiu.value = [
+    ...randomNum(shuangSeQiuRed, 6).sort((a, b) => a - b),
+    ...randomNum(shuangSeQiuBlue, 1).sort((a, b) => a - b),
+  ];
+  daLeTou.value = [
+    ...randomNum(daLeTouRed, 5).sort((a, b) => a - b),
+    ...randomNum(daLeTouBlue, 2).sort((a, b) => a - b),
+  ];
 };
 
 const copyNum = (type: number) => {
   if (type === 1) {
-    navigator.clipboard.writeText(JSON.stringify(shuangSeQiu.value.join("-")));
+    navigator.clipboard.writeText(shuangSeQiu.value.join("-"));
   }
   if (type === 2) {
-    navigator.clipboard.writeText(JSON.stringify(daLeTou.value.join("-")));
+    navigator.clipboard.writeText(daLeTou.value.join("-"));
   }
 };
 
+const reload = () => {
+  window.location.reload();
+};
+
 onMounted(() => {
-  newNum(1);
-  newNum(2);
+  nextTick(() => {
+    createNum();
+  });
 });
 </script>
