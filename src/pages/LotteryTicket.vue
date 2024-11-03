@@ -38,34 +38,36 @@
 </template>
 
 <script setup lang="ts">
-const shuangSeQiu = ref([]);
-const daLeTou = ref([]);
+const shuangSeQiu = ref<Array<number>>([]);
+const daLeTou = ref<Array<number>>([]);
 
-const shuangSeQiuRed = Array.from({ length: 33 }, (_, i) => i + 1);
-const shuangSeQiuBlue = Array.from({ length: 16 }, (_, i) => i + 1);
+const shuangSeQiuRed: number[] = Array.from({ length: 33 }, (_, i) => i + 1);
+const shuangSeQiuBlue: number[] = Array.from({ length: 16 }, (_, i) => i + 1);
 
-const daLeTouRed = Array.from({ length: 35 }, (_, i) => i + 1);
-const daLeTouBlue = Array.from({ length: 12 }, (_, i) => i + 1);
+const daLeTouRed: number[] = Array.from({ length: 35 }, (_, i) => i + 1);
+const daLeTouBlue: number[] = Array.from({ length: 12 }, (_, i) => i + 1);
 
-const randomNum = (arr, numToSelect) => {
+const randomNum = (arr: number[], numToSelect: number) => {
   const shuffledArr = arr.slice().sort(() => Math.random() - 0.5);
   const selectedNumbers = shuffledArr.slice(0, numToSelect);
   return selectedNumbers;
 };
 
-const newNum = (type) => {
+const newNum = (type: number) => {
   if (type === 1) {
     shuangSeQiu.value = randomNum(shuangSeQiuRed, 6)
-      .sort((a, b) => a - b)
-      .concat(randomNum(shuangSeQiuBlue, 1).sort((a, b) => a - b));
+      .sort((a: number, b: number) => a - b)
+      .concat(
+        randomNum(shuangSeQiuBlue, 1).sort((a: number, b: number) => a - b)
+      );
   } else if (type === 2) {
     daLeTou.value = randomNum(daLeTouRed, 5)
-      .sort((a, b) => a - b)
-      .concat(randomNum(daLeTouBlue, 2).sort((a, b) => a - b));
+      .sort((a: number, b: number) => a - b)
+      .concat(randomNum(daLeTouBlue, 2).sort((a: number, b: number) => a - b));
   }
 };
 
-const copyNum = (type) => {
+const copyNum = (type: number) => {
   if (type === 1) {
     navigator.clipboard.writeText(JSON.stringify(shuangSeQiu.value.join("-")));
   }
