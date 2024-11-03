@@ -94,7 +94,7 @@ const initBoard = () => {
 
   board.value.on(DragEvent.DRAG, async function (e: DragEvent) {});
 
-  board.value.on(DragEvent.END, (e) => {
+  board.value.on(DragEvent.END, (e: any) => {
     const boardX = e.current.__nowWorld.x; // board 左上点的x坐标
     const boardY = e.current.__nowWorld.y; // board 左上点的y坐标
     const boardWidth = e.current.__nowWorld.width; // board 的宽度
@@ -126,7 +126,13 @@ const initBoard = () => {
   container.value.add(board.value);
 };
 
-const createArea = (groupX, groupY, rectW, rectH, rectFill) => {
+const createArea = (
+  groupX: number,
+  groupY: number,
+  rectW: number,
+  rectH: number,
+  rectFill: string
+) => {
   const rect = new Rect({
     width: rectW,
     height: rectH,
@@ -142,7 +148,14 @@ const createArea = (groupX, groupY, rectW, rectH, rectFill) => {
   return group;
 };
 
-const createItem = (x, y, w, h, fill, onlyBorder) => {
+const createItem = (
+  x: number,
+  y: number,
+  w: number,
+  h: number,
+  fill: string,
+  onlyBorder?: boolean
+) => {
   const rect = new Rect({
     width: w,
     height: h,
@@ -156,7 +169,7 @@ const createItem = (x, y, w, h, fill, onlyBorder) => {
     },
     zIndex: 100,
   });
-  rect.on(PointerEvent.TAP, (e) => {
+  rect.on(PointerEvent.TAP, (e: any) => {
     console.log(e.current.data);
     resizeRef.value!.style.top = `${e.y}px`;
     resizeRef.value!.style.left = `${e.x}px`;
@@ -164,7 +177,7 @@ const createItem = (x, y, w, h, fill, onlyBorder) => {
   return rect;
 };
 
-const createText = (x, y, text = "text") => {
+const createText = (x: number, y: number, text: string = "text") => {
   const textBox = new Box({
     x,
     y,
@@ -183,7 +196,7 @@ const createText = (x, y, text = "text") => {
   return textBox;
 };
 
-const createTooltip = (areaWidth, text) => {
+const createTooltip = (areaWidth: number, text: string) => {
   const textBox = new Box({
     x: 0,
     y: 0,
@@ -227,7 +240,7 @@ const createTooltip = (areaWidth, text) => {
   return { tooltip, sidesThree };
 };
 
-const createTooltip1 = (areaWidth, text) => {
+const createTooltip1 = (areaWidth: number, text: string) => {
   const textBox = createText(0, 0, text);
 
   const t = new Text({
@@ -270,7 +283,7 @@ const getData = async () => {
   try {
     const data = await axios.get("/parse/dxf/2");
     entities.value = data.data.entities.filter(
-      (entity) => entity.type === "INSERT" || entity.type === "LWPOLYLINE"
+      (entity: any) => entity.type === "INSERT" || entity.type === "LWPOLYLINE"
     );
     stockUseInfoList.value = data.data.stockUseInfoList;
     // console.log("entities", entities.value);
@@ -281,9 +294,9 @@ const plottingScale = ref(0);
 const allMinX = ref(0);
 const allMinY = ref(0);
 
-const getMaxMin = (list) => {
-  const xValues = list.flatMap((item) => item.vertices.map((i) => i.x));
-  const yValues = list.flatMap((item) => item.vertices.map((i) => i.y));
+const getMaxMin = (list: any) => {
+  const xValues = list.flatMap((item: any) => item.vertices.map((i: any) => i.x));
+  const yValues = list.flatMap((item: any) => item.vertices.map((i: any) => i.y));
 
   const maxX = Math.max(...xValues);
   const maxY = Math.max(...yValues);
@@ -306,13 +319,14 @@ const getMaxMin = (list) => {
 };
 const drawArea = () => {
   const list = entities.value.filter(
-    (entity) => entity.type === "LWPOLYLINE" && entity.layer.startsWith(KQ_KEY)
+    (entity: any) =>
+      entity.type === "LWPOLYLINE" && entity.layer.startsWith(KQ_KEY)
   );
   // console.log("drawArea", list);
   getMaxMin(list);
-  list.forEach(({ layer, vertices }) => {
-    const xValues = vertices.map((i) => i.x);
-    const yValues = vertices.map((i) => i.y);
+  list.forEach(({ layer, vertices }: any) => {
+    const xValues = vertices.map((i: any) => i.x);
+    const yValues = vertices.map((i: any) => i.y);
 
     const minX = Math.min(...xValues);
     const minY = Math.min(...yValues);
@@ -323,8 +337,11 @@ const drawArea = () => {
     if (layer === "KQ-Y-BC-9") {
       console.log("vertices", vertices);
       const points = vertices
-        .flatMap((item) => [item.x - vertices[0].x, -item.y + vertices[0].y])
-        .map((i) => i * plottingScale.value);
+        .flatMap((item: any) => [
+          item.x - vertices[0].x,
+          -item.y + vertices[0].y,
+        ])
+        .map((i: any) => i * plottingScale.value);
       console.log(points);
       const rect = new Polygon({
         points: points,
@@ -415,17 +432,17 @@ const drawArea = () => {
 
 const drawItem = () => {
   const list = entities.value.filter(
-    (entity) => entity.type === "INSERT" && entity.name.startsWith(KW_KEY)
+    (entity: any) => entity.type === "INSERT" && entity.name.startsWith(KW_KEY)
   );
 
   const itemWidth = 1000 * plottingScale.value;
   console.log(list);
-  list.forEach((item) => {
+  list.forEach((item: any) => {
     const { position, name } = item;
     const shelfCode = name.slice(KW_KEY.length);
 
-    const selectedItem = (stockUseInfoList.value || []).find(
-      (i) => i.shelfCode === shelfCode
+    const selectedItem: any = (stockUseInfoList.value || []).find(
+      (i: any) => i.shelfCode === shelfCode
     );
     const id = selectedItem?.useStatus || 0;
     const color = labelList.find((item) => item.id === id)?.color || "#CFD1D3";
@@ -482,7 +499,7 @@ onMounted(async () => {
   board.value.add(polygon);
 });
 
-const resize = (w, h) => {
+const resize = (w: number, h: number) => {
   // board.value.width = w;
   // board.value.height = h;
   board.value.destroy();

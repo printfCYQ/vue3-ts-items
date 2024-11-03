@@ -14,7 +14,7 @@ const data = [
   { item: "事例五", count: 9, percent: 0.09 },
 ];
 
-const chart = ref(null);
+const chart = ref<any>();
 
 const resizeObserver = new ResizeObserver((entries) => {
   for (const entry of entries) {
@@ -58,9 +58,9 @@ const renderChart = () => {
     })
     .label({
       position: "outside",
-      text: (data) => `${data.item}: ${data.percent * 100}%`,
+      text: (data: any) => `${data.item}: ${data.percent * 100}%`,
     })
-    .tooltip((data) => ({
+    .tooltip((data: any) => ({
       name: data.item,
       value: `${data.percent * 100}%`,
     }));

@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts">
-import userApi from "@/api/user/index.ts";
+import userApi from "@/api/user/index";
 export default defineComponent({
   name: "About",
   components: {},

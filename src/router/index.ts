@@ -141,15 +141,17 @@ export const routes: Array<RouteRecordRaw> = [{
     path:'/antVG2',
     name:'AntVG2',
     component:()=>import('@/pages/AntVG2/Index.vue')
-},{
-    path:'/three',
-    name:'Three',
-    component:()=>import('@/pages/Three/Index.vue')
-},{
-    path:'/leaferUi',
-    name:'LeaferUi',
-    component:()=>import('@/pages/LeaferUi/Index.vue')
-}]
+},
+// {
+//     path:'/three',
+//     name:'Three',
+//     component:()=>import('@/pages/Three/Index.vue')
+// },{
+//     path:'/leaferUi',
+//     name:'LeaferUi',
+//     component:()=>import('@/pages/LeaferUi/Index.vue')
+// }
+]
 
 const router = createRouter({
     history: createWebHistory(),

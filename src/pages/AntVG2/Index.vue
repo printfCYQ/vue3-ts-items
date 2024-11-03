@@ -18,7 +18,7 @@ const data = [
 ];
 
 const containerRef = ref();
-const chartRef = ref(null);
+const chartRef = ref();
 
 onMounted(async () => {
   renderChart();
@@ -35,7 +35,7 @@ const renderChart = () => {
     .encode("y", "value")
     .axis("x", {
       tickLineDash: [1, 1], // 把 tick 线设置为虚线
-      tickFilter: (_, i) => i % 2 === 0, // 隐藏奇数索引 tick 线
+      tickFilter: (_: any, i: number) => i % 2 === 0, // 隐藏奇数索引 tick 线
       tickLength: 20, // 设置 tick 线长度
       tickLineWidth: 10, // 设置 tick 线宽度
       tickStroke: "red", // 设置 tick 线颜色
@@ -61,6 +61,6 @@ const renderChart = () => {
     });
   chart.point().style("fill", "white").tooltip(false);
   chart.render();
-  chartRef.value = chart;
+  chartRef!.value = chart;
 };
 </script>

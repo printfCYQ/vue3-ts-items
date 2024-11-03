@@ -53,15 +53,15 @@ const toggle = () => {
   editable.value = !editable.value;
 };
 
-const resized = (e) => {
+const resized = (e: any) => {
   console.log("resized", e);
 };
 
-const move = (e) => {
+const move = (e: any) => {
   console.log("move", e);
 };
 
-const moved = (e) => {
+const moved = (e: any) => {
   console.log("moved", e);
 };
 </script>

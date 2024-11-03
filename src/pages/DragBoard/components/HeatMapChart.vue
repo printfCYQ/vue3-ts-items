@@ -14,7 +14,7 @@ const data = [
   { item: "事例五", count: 9, percent: 0.09 },
 ];
 
-const chart = ref(null);
+const chart = ref();
 
 const resizeObserver = new ResizeObserver((entries) => {
   for (const entry of entries) {
@@ -47,8 +47,8 @@ const renderChart = () => {
       value: "https://assets.antv.antgroup.com/g2/seattle-weather.json",
     })
     .transform({ type: "group", color: "max" })
-    .encode("x", (d) => new Date(d.date).getUTCDate())
-    .encode("y", (d) => new Date(d.date).getUTCMonth())
+    .encode("x", (d: any) => new Date(d.date).getUTCDate())
+    .encode("y", (d: any) => new Date(d.date).getUTCMonth())
     .encode("color", "temp_max")
     .style("inset", 0.5)
     .scale("color", { palette: "gnBu" })
@@ -56,7 +56,7 @@ const renderChart = () => {
 
   chartInstance.render();
   chartInstance.forceFit();
-  chart.value = chartInstance;
+  chart!.value = chartInstance;
 };
 
 const reload = useThrottleFn(() => {

@@ -35,7 +35,7 @@ const data = [
   { letter: "Z", frequency: 0.00074 },
 ];
 
-const chart = ref(null);
+const chart = ref<any>(null);
 
 const resizeObserver = new ResizeObserver((entries) => {
   for (const entry of entries) {

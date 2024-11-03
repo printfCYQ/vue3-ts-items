@@ -1,5 +1,4 @@
 // import { useAppStore } from '@/store';
-import type { AxiosRequestConfig } from 'axios';
 import axios from 'axios';
 import NProgress from 'nprogress';
 
@@ -8,7 +7,7 @@ axios.defaults.baseURL = import.meta.env.VITE_APP_BASE_URL
 axios.defaults.timeout = 10000
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8'
 axios.interceptors.request.use(
-    (config): AxiosRequestConfig<any> => {
+    (config): any => {
         // const appStore = useAppStore()
         // if (appStore.token && config.headers) {
         //     config.headers["Authorization"] = "Bearer " + appStore.token;
