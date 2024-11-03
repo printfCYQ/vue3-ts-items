@@ -151,6 +151,11 @@ export const routes: Array<RouteRecordRaw> = [{
 //     name:'LeaferUi',
 //     component:()=>import('@/pages/LeaferUi/Index.vue')
 // }
+{
+    path:'/lotteryTicket',
+    name:'LotteryTicket',
+    component:()=>import('@/pages/LotteryTicket.vue')  
+}
 ]
 
 const router = createRouter({
