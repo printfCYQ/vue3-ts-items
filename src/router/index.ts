@@ -155,6 +155,10 @@ export const routes: Array<RouteRecordRaw> = [{
     path:'/lotteryTicket',
     name:'LotteryTicket',
     component:()=>import('@/pages/LotteryTicket.vue')  
+},{
+    path:'/variableNameConversion',
+    name:'VariableNameConversion',
+    component:()=>import('@/pages/VariableNameConversion.vue')  
 }
 ]
 
