@@ -1,7 +1,12 @@
 <template>
-  <div class="w-screen h-screen flex flex-wrap content-start">
-    <div class="mt-5 ml-10" v-for="route in routes" :key="route.path">
-      <router-link :to="route.path">{{ route.name }}</router-link>
+  <div class="w-screen h-screen ">
+    <div class="p-5">
+      <MyLogo />
+    </div>
+    <div class="flex flex-wrap content-start">
+      <div class="mt-5 ml-10" v-for="route in routes" :key="route.path">
+        <router-link :to="route.path">{{ route.name }}</router-link>
+      </div>
     </div>
     <!-- <button @click="close">close</button> -->
   </div>

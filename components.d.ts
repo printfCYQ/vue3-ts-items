@@ -9,6 +9,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Backtop: typeof import('./src/components/backtop/index.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    MyLogo: typeof import('./src/components/MyLogo.vue')['default']
     Pane: typeof import('./src/components/splitpane/pane.vue')['default']
     Resizer: typeof import('./src/components/splitpane/resizer.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
